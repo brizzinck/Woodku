@@ -1437,9 +1437,9 @@ MonoBehaviour:
   _costRotateAbilityTXT: {fileID: 337240489}
   _costRespawnAbilityTXT: {fileID: 1005945931}
   _costDeleteAbilityTXT: {fileID: 992563190}
-  _costRotateAbility: 3
-  _costRespawnAbility: 5
-  _costDeleteAbility: 10
+  _costRotateAbility: 10
+  _costRespawnAbility: 30
+  _costDeleteAbility: 20
 --- !u!1001 &689114084
 PrefabInstance:
   m_ObjectHideFlags: 0

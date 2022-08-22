@@ -23,7 +23,6 @@ public class Figure : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public FigureSpawner FigureSpawn { get => _figureSpawn; }
     public List<Square> Squares { get => _squares; }
     public Vector3 Rotate { get => _rotate; set => _rotate = value; }
-    public bool Selected { get => _selected; }
 
     public void SetSpawnPanel(SpawnPanel spawnPanel)
     {
@@ -45,10 +44,10 @@ public class Figure : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (!_figureSelected) return;
         _highCell = false;
+        _selected = false;
         Place();
         StartCoroutine(GameOver.CheckAllPlace());
         SetSelectedFigure(true);
-        StartCoroutine(SelectedControll(false));
     }
     public void ControllFadeFigure(Color spawnPanelColor, Color squareColor)
     {
@@ -163,10 +162,5 @@ public class Figure : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             figure.FigureSelected = selected;
         }
-    }
-    private IEnumerator SelectedControll(bool selected)
-    {
-        yield return null;
-        _selected = selected;
     }
 }
