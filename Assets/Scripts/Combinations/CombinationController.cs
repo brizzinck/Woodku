@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class CombinationController : MonoBehaviour
 {
-    [SerializeField] private TMPro.TextMeshProUGUI[] _scoreTXT;
+    [SerializeField] private TMPro.TextMeshProUGUI _scoreTXT;
     [SerializeField] private TMPro.TextMeshProUGUI _coinTXT;
     private GlobalProperties _globalProperties;
     private List<int> _squareIndexDestroy = new List<int>();
@@ -121,7 +121,8 @@ public class CombinationController : MonoBehaviour
             Coins.SaveCoin(3);
         }
 
-        for (int i = 0; i < _scoreTXT.Length; i++) _scoreTXT[i].text = _score.ToString();
+        if (_score != 0) _scoreTXT.text = _score.ToString();
+
         Score score = new Score();
         score.SaveScore(_score);
         Coins.SaveCoin(1);

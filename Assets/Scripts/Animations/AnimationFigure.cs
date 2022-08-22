@@ -7,6 +7,7 @@ public class AnimationFigure : MonoBehaviour
 {
     public static void AnamationResetFigure(Figure figure, SpawnPanel spawnPanel)
     {
+        DOTween.Kill(figure);
         spawnPanel.Free = false;
         figure.transform.parent = spawnPanel.transform;
         AnimationScaleFigure(figure, 0.5f, 0.2f);
@@ -14,7 +15,7 @@ public class AnimationFigure : MonoBehaviour
     }
     public static void AnimationResetPostion(Figure figure, Transform transform, float timeResetPostion)
     {
-        figure.transform.DOMove(transform.transform.position, timeResetPostion).SetEase(Ease.Linear);
+        figure.transform.DOMove(transform.position, timeResetPostion);
     }
     public static void AnimationScaleFigure(Figure figure, float scale, float timeScale)
     {
