@@ -55,14 +55,27 @@ public class GameOver : MonoBehaviour
                 if (!isPlace)
                 {
                     GameAnimation.DoFade(_gameOverPanelStatic, 1);
+                    FigureSelected(figures, false);
                     _gameOverPanelStatic.blocksRaycasts = true;
                     _settingsButtonStatic.interactable = false;
                 }
-                else CloseGameOver();
+                else
+                {
+                    FigureSelected(figures, true);
+                    CloseGameOver();
+                }
             }
             else _figureSpawnerStatic.Spawn(true);        
         }
         Square.StopHighLightCell(_gridStatic);
+
+        static void FigureSelected(Figure[] figures, bool selected)
+        {
+            foreach (Figure figure in figures)
+            {
+                figure.FigureSelected = selected;
+            }
+        }
     }
 
     private void Start()
